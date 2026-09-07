@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4eee3;
+  --foreground: #142b4b;
+  --navy: #142b4b;
+  --ink: #203b5e;
+  --gold: #ad7c2d;
+  --gold-light: #d5b36b;
+  --paper: #fbf8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  border-color: var(--gold-light);
+}
+
+.invitation-shell {
+  background: var(--paper);
+  color: var(--navy);
+  font-family: var(--font-body), sans-serif;
+}
+
+.ornate-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.ornate-frame::before,
+.ornate-frame::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ornate-frame::before {
+  inset: 18px;
+  border: 1px solid rgb(173 124 45 / 0.8);
+}
+
+.ornate-frame::after {
+  inset: 25px;
+  border: 1px solid rgb(173 124 45 / 0.35);
+}
+
+.floral-corner {
+  position: absolute;
+  z-index: 2;
+  height: 180px;
+  opacity: 0.95;
+  pointer-events: none;
+  width: 150px;
+}
+
+.floral-corner::before,
+.floral-corner::after {
+  content: "";
+  position: absolute;
+}
+
+.floral-corner::before {
+  background:
+    radial-gradient(circle at 72% 18%, var(--navy) 0 7px, transparent 8px),
+    radial-gradient(circle at 58% 10%, var(--navy) 0 7px, transparent 8px),
+    radial-gradient(circle at 46% 21%, var(--navy) 0 7px, transparent 8px),
+    radial-gradient(circle at 60% 25%, var(--gold) 0 4px, transparent 5px),
+    linear-gradient(125deg, transparent 48%, var(--gold) 49% 50%, transparent 51%);
+  inset: 0;
+  transform: rotate(-8deg);
+}
+
+.floral-corner::after {
+  border: 2px solid var(--gold);
+  border-left-color: transparent;
+  border-radius: 50%;
+  height: 130px;
+  left: 6px;
+  top: 42px;
+  transform: rotate(22deg);
+  width: 70px;
+}
+
+.floral-top-left {
+  left: 30px;
+  top: 25px;
+}
+
+.floral-top-right {
+  right: 30px;
+  top: 25px;
+  transform: scaleX(-1);
+}
+
+.floral-bottom-left {
+  bottom: 25px;
+  left: 30px;
+  transform: scaleY(-1);
+}
+
+.floral-bottom-right {
+  bottom: 25px;
+  right: 30px;
+  transform: scale(-1);
+}
+
+.logo-flower {
+  color: var(--gold);
+  font-size: 1.4rem;
+  letter-spacing: 0.5rem;
+}
+
+.sj-crest {
+  display: inline-block;
+  height: clamp(9rem, 24vw, 15rem);
+  position: relative;
+  width: clamp(10rem, 29vw, 18rem);
+}
+
+.logo-image {
+  display: block;
+  height: clamp(13rem, 34vw, 21rem);
+  object-fit: contain;
+  width: clamp(13rem, 34vw, 21rem);
+}
+
+.footer-logo {
+  height: 7rem;
+  width: 7rem;
+}
+
+.sj-letter {
+  font-family: var(--font-display), serif;
+  font-size: clamp(9rem, 25vw, 15rem);
+  font-weight: 500;
+  line-height: 0.7;
+  position: absolute;
+}
+
+.sj-letter-s {
+  color: var(--navy);
+  left: 0;
+  text-shadow: 3px 2px 0 var(--gold), 5px 4px 0 rgb(173 124 45 / 0.15);
+  top: 0;
+  z-index: 2;
+}
+
+.sj-letter-j {
+  color: var(--gold);
+  left: 32%;
+  text-shadow: 2px 2px 0 var(--navy);
+  top: 23%;
+  z-index: 1;
+}
+
+.joined-logo {
+  color: var(--navy);
+  font-family: var(--font-script), cursive;
+  font-size: 0;
+}
+
+.footer-monogram {
+  height: 5rem;
+  margin: 0 auto;
+  width: 7rem;
+}
+
+.footer-monogram .sj-letter-s {
+  color: #fffdf8;
+}
+
+.rule {
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.rule::before,
+.rule::after {
+  background: var(--gold-light);
+  content: "";
+  height: 1px;
+  max-width: 110px;
+  width: 22vw;
+}
+
+.rule-mark {
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.script-name {
+  color: var(--navy);
+  font-family: var(--font-script), cursive;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+}
+
+.save-date-heading {
+  color: var(--navy);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.gold-button {
+  background: var(--navy);
+  border: 1px solid var(--gold);
+  color: #fffdf8;
+}
+
+.paper-section {
+  background: var(--paper);
+}
+
+.navy-section {
+  background: var(--navy);
+  color: #fffdf8;
+}
+
+.section-heading {
+  color: var(--navy);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+}
+
+.gold-label {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
