@@ -34,7 +34,7 @@ const targetDate = new Date("2026-11-23T11:00:00+05:30").getTime();
 export default function Home() {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [sent, setSent] = useState(false);
-  const [attendance, setAttendance] = useState("Attending both events");
+  const [attendance, setAttendance] = useState("");
   const [envelopeOpen, setEnvelopeOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState("Home");
   const musicRef = useRef<HTMLAudioElement>(null);
@@ -272,7 +272,7 @@ export default function Home() {
             <form id="rsvpForm" onSubmit={submitRsvp} className="mt-8 space-y-5">
               <input required name="guestName" placeholder="Guest name" className="w-full rounded-xl border border-[#d9c98e] bg-white p-4" />
               <label className="block text-left"><span className="mb-2 block text-sm font-semibold text-[#203b5e]">Phone number</span><input required name="mobileNumber" type="tel" placeholder="Enter your phone number" className="w-full rounded-xl border border-[#d9c98e] bg-white p-4" /></label>
-              <select name="attendance" value={attendance} onChange={(event) => setAttendance(event.target.value)} className="w-full rounded-xl border border-[#d9c98e] bg-white p-4"><option>Attending both events</option><option>Engagement only</option><option>Wedding only</option><option>Unable to attend</option></select>
+              <select required name="attendance" value={attendance} onChange={(event) => setAttendance(event.target.value)} className="w-full rounded-xl border border-[#d9c98e] bg-white p-4"><option value="" disabled>Select attendance</option><option>Attending both events</option><option>Engagement only</option><option>Wedding only</option><option>Unable to attend</option></select>
               {(attendance === "Attending both events" || attendance === "Wedding only") && <input required name="attendeeCount" type="number" min="1" placeholder="Number of attendees" className="w-full rounded-xl border border-[#d9c98e] bg-white p-4" />}
               <textarea name="wishes" placeholder="Your wishes" className="min-h-28 w-full rounded-xl border border-[#d9c98e] bg-white p-4" />
               <button type="submit" className="gold-button w-full rounded-xl p-4 font-bold">Submit RSVP</button>
