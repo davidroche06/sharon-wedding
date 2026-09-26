@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sharon-weds-justin-1.vercel.app"),
   title: "Sharon & Justin | Wedding Invitation",
   description: "The wedding invitation of Sharon and Justin.",
   openGraph: {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Sharon & Justin | Wedding Invitation",
     description: "The wedding invitation of Sharon and Justin.",
   },
