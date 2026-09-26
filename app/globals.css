@@ -330,8 +330,21 @@ html {
 }
 
 .footer-logo {
-  height: 7rem;
-  width: 7rem;
+  height: 100%;
+  width: 100%;
+}
+
+.footer-logo-plate {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 0.4rem;
+  width: clamp(6rem, 24vw, 8rem);
 }
 
 .sj-letter {
