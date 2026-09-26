@@ -42,7 +42,7 @@ html {
 
 .envelope-overlay {
   align-items: center;
-  background: var(--navy);
+  background: var(--paper);
   display: flex;
   inset: 0;
   justify-content: center;
@@ -198,7 +198,7 @@ html {
 .envelope-seal {
   align-items: center;
   appearance: none;
-  background: var(--navy);
+  background: transparent;
   border: 2px solid var(--gold);
   border-radius: 50%;
   box-shadow: 0 0 0 5px var(--paper), 0 0 0 7px var(--gold);
@@ -206,24 +206,24 @@ html {
   display: flex;
   font-family: var(--font-display), serif;
   font-size: 1.5rem;
-  height: 4.5rem;
+  height: clamp(3.75rem, 18vw, 5rem);
   justify-content: center;
   position: absolute;
   top: 36%;
   cursor: pointer;
-  width: 4.5rem;
+  width: clamp(3.75rem, 18vw, 5rem);
   z-index: 5;
 }
 
 .envelope-seal:hover {
-  background: #1d4f86;
+  background: transparent;
   transform: scale(1.06);
 }
 
 .envelope-logo {
-  height: 4rem;
+  height: 86%;
   object-fit: contain;
-  width: 4rem;
+  width: 86%;
 }
 
 .ornate-frame {

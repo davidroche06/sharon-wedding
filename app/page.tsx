@@ -26,7 +26,7 @@ const details = {
   groomParents: "Mr Jose Oommen & Mrs Jasmine Jose",
   whatsapp: "919611288344",
   phoneDisplay: "+91 9611288344",
-  rsvpEmail: "sholydavid@gmail.com",
+  rsvpEmail: "sharon.biju13@outlook.com",
 };
 
 const targetDate = new Date("2026-11-23T11:00:00+05:30").getTime();
