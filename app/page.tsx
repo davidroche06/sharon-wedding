@@ -101,6 +101,11 @@ export default function Home() {
     const dropdown = event.currentTarget.closest("details");
     if (dropdown) dropdown.open = false;
     setActiveMenuItem(item);
+    const target = event.currentTarget.hash;
+    window.history.pushState(null, "", target);
+    window.requestAnimationFrame(() => {
+      document.getElementById(target.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   function sendRsvpWhatsApp(event: MouseEvent<HTMLAnchorElement>) {
@@ -167,9 +172,9 @@ export default function Home() {
             <details className="menu-dropdown">
               <summary>Celebrations <span aria-hidden="true">⌄</span></summary>
               <div className="menu-dropdown-panel">
-                <a href="#events" className={activeMenuItem === "Engagement" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Engagement")}>Engagement</a>
-                <a href="#events" className={activeMenuItem === "Wedding" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Wedding")}>Wedding</a>
-                <a href="#events" className={activeMenuItem === "Reception" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Reception")}>Reception</a>
+                <a href="#engagement" className={activeMenuItem === "Engagement" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Engagement")}>Engagement</a>
+                <a href="#wedding" className={activeMenuItem === "Wedding" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Wedding")}>Wedding</a>
+                <a href="#reception" className={activeMenuItem === "Reception" ? "menu-dropdown-item-active" : ""} onClick={(event) => closeDropdown(event, "Reception")}>Reception</a>
               </div>
             </details>
             <details className="menu-dropdown">
@@ -229,7 +234,7 @@ export default function Home() {
           <h2 className="section-heading mt-3">Save the Dates</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {events.map((item) => (
-              <article key={item.title} className={`event-card border border-[#d5b36b] bg-white/60 p-8 shadow-sm ${activeMenuItem === item.title ? "event-card-active" : ""}`}>
+              <article id={item.title.toLowerCase()} key={item.title} className={`event-card border border-[#d5b36b] bg-white/60 p-8 shadow-sm ${activeMenuItem === item.title ? "event-card-active" : ""}`}>
                 <h3 className="font-serif text-3xl text-[#142b4b]">{item.title}</h3>
                 <p className="mt-5 font-semibold text-[#142b4b]">{item.date}</p>
                 <p className="mt-2">{item.time}</p>

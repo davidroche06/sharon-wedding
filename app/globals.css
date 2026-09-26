@@ -504,6 +504,7 @@ html {
 }
 
 .event-card {
+  scroll-margin-top: 6rem;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
