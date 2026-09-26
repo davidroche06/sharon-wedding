@@ -26,7 +26,8 @@ const details = {
   groomParents: "Mr Jose Oommen & Mrs Jasmine Jose",
   whatsapp: "919611288344",
   phoneDisplay: "+91 9611288344",
-  rsvpEmail: "sharon.biju13@outlook.com",
+  rsvpEmail: "sharon.b13@outlook.com",
+  rsvpCc: "sholydavid@gmail.com",
 };
 
 const targetDate = new Date("2026-11-23T11:00:00+05:30").getTime();
@@ -93,7 +94,7 @@ export default function Home() {
       `Number of attendees: ${formData.get("attendeeCount") ?? ""}`,
       `Wishes: ${formData.get("wishes") ?? ""}`,
     ].join("\n");
-    window.location.href = `mailto:${details.rsvpEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${details.rsvpEmail}?cc=${encodeURIComponent(details.rsvpCc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
 
